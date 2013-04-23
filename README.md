@@ -31,4 +31,5 @@ Out to standard console.
 REFERENCE  
 -----
 Meishan Zhang, Yue Zhang, Wanxiang Che, Ting Liu. Chinese Parsing Exploiting Characters. In Proceedings of the 51th Annual Meeting of the Association for Computational Linguistics (To appear in ACL 2013). 2013.08. Sofia, Bulgaria  
+http://ir.hit.edu.cn/~mszhang/  
 https://sites.google.com/site/mszhang0610/  
