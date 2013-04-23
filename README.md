@@ -1,11 +1,11 @@
 INTRODUCTION
 -----
-main data for joint parsing  
+main annotation data for joint parsing  
 tools/word.inner.zpar  
 
 COMMAND
 -----
-direction tools:
+tools usage:  
 python binarize_noroot.py rule.txt temp.cs temp.zpar  
 In@rule.txt: head-finding rules  
 In@temp.cs: phrase structure corpus, the same as as the input for berkeley parser, not including the extra "ROOT" label tree.  
@@ -21,7 +21,7 @@ python unbinarizeclt.py -i temp.chars.zpar -o temp.chars.cs
 In@temp.chars.zpar: zpar character-based constituent parser, train format  
 Out@temp.chars.cs: berkeley parser in/out format.  
   
-java -Xmx1G -jar CLTEvaluate.jar [-dict  train.ctb50.dict]  test.gold  test.predict  // dev.gold & dev.predict berkeley parser format  
+java -Xmx1G -jar CLTEvaluate.jar [-dict  train.ctb50.dict]  test.gold  test.predict  
 In@train.ctb50.dict: alternative params, the words in training corpus, to test OOV performance.  
 In@test.gold: gold corpus, berkeley parser in/out format.  
 In@test.gold: predict corpus, berkeley parser in/out format.  
