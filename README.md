@@ -3,7 +3,7 @@ INTRODUCTION
 main data for joint parsing
 in tools/word.inner.zpar
 
-Reference
+COMMAND
 -----
 direction tools:
 python binarize_noroot.py rule.txt temp.cs temp.zpar  
@@ -26,3 +26,9 @@ In@train.ctb50.dict: alternative params, the words in training corpus, to test O
 In@test.gold: gold corpus, berkeley parser in/out format.
 In@test.gold: predict corpus, berkeley parser in/out format.
 Out to standard console.
+
+
+
+REFERENCE
+Meishan Zhang, Yue Zhang, Wanxiang Che, Ting Liu. Chinese Parsing Exploiting Characters. In Proceedings of the 51th Annual Meeting of the Association for Computational Linguistics (To appear in ACL 2013). 2013.08. Sofia, Bulgaria
+https://sites.google.com/site/mszhang0610/
