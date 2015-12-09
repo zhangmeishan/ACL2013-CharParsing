@@ -1,35 +1,27 @@
-INTRODUCTION
------
-main annotation data for joint parsing  
-tools/word.inner.zpar  
-
-COMMAND
------
-tools usage:  
-python binarize_noroot.py rule.txt temp.cs temp.zpar  
-In@rule.txt: head-finding rules  
-In@temp.cs: phrase structure corpus, the same as as the input for berkeley parser, not including the extra "ROOT" label tree.  
-Out@temp.zpar: output, for zpar word-based constituent parser to train  
-
-python append_wordstructure.py -d word.inner.zpar -i temp.zpar -o temp.chars.zpar -r remain.words  
-In@word.inner.zpar: word structur files. (x,y,z denote coor, right and left respectively)  
-In@temp.zpar: zpar structure, word-based constituent parser  
-Out@temp.chars.zpar: zpar structure, character-based constituent parser to train.  
-Out@remain.words: in temp.zpar, some words may be not annotated, we print it in this file.  
- 
-python unbinarizeclt.py -i temp.chars.zpar -o temp.chars.cs   
-In@temp.chars.zpar: zpar character-based constituent parser, train format  
-Out@temp.chars.cs: berkeley parser in/out format.  
-  
-java -Xmx1G -jar CLTEvaluate.jar [-dict  train.ctb50.dict]  test.gold  test.predict  
-In@train.ctb50.dict: alternative params, the words in training corpus, to test OOV performance.  
-In@test.gold: gold corpus, berkeley parser in/out format.  
-In@test.gold: predict corpus, berkeley parser in/out format.  
-Out to standard console.  
+ACL2013-CharParsing
+================
+This is an example script to run the code of my ACL 2013 paper [Chinese Parsing Exploiting Characters](http://www.aclweb.org/anthology/P/P13/P13-1013.pdf)  
 
 
-REFERENCE  
------
-Meishan Zhang, Yue Zhang, Wanxiang Che, Ting Liu. Chinese Parsing Exploiting Characters. In Proceedings of the 51th Annual Meeting of the Association for Computational Linguistics (To appear in ACL 2013). 2013.08. Sofia, Bulgaria  
-http://ir.hit.edu.cn/~mszhang/  
-https://sites.google.com/site/mszhang0610/  
+Please follow the below steps:  
+(1) Download the code of [ZPar](https://github.com/zhangmeishan/ZPar).  
+(2) Modify the "**setting**" file, finding the following line  
+&ensp;&ensp;&ensp;&ensp;&ensp;`#chinese constituency parser: acl13(default), jcad`  
+&ensp;&ensp;&ensp;ensuring that `CHINESE_CONSTITUENCY_PARSER  jcad`  
+(3) run  "python configure.py chinese conparser"  
+(4) run command `cmake . `  generate Makefile  
+(5) compile using `make `    
+(6) copy the bin files in the bin folder into folder `ZPar-RunExample`  
+(7) run "./ctb60-exp.sh" in `ZPar-RunExample`  
+
+================
+There is another folder named `TreeGeneration`, telling one user that how to generate training corpus and character-level phrase structures.
+* Training corpus generation  
+&ensp;&ensp;&ensp;`python ../tools/binarize_noroot.py ../tools/rule.txt test.cs test.zpar`  
+&ensp;&ensp;&ensp;`python ../tools/append_wordstructure.py -d ../tools/word.inner.zpar -i test.zpar -o test.chars.zpar -r remain.words`  
+* Character-level phrase structures  
+&ensp;&ensp;&ensp;`python ../tools/unbinarizeclt.py -i test.chars.zpar -o test.chars.cs`  
+
+================
+Any problems, please concat mason.zms@gmail.com.  
+

@@ -22638,7 +22638,7 @@
 ( NN y ( NN b 连 )  ( NN i 队 )  ) 
 ( NN x ( NN b 连 )  ( NN i 接 )  ) 
 ( NN y ( NN x ( NN b 连 )  ( NN i 接 )  )  ( NN i 车 )  ) 
-( N连线N y ( NN x ( NN b 连 )  ( NN i 接 )  )  ( NN i 符 )  ) 
+( NN y ( NN x ( NN b 连 )  ( NN i 接 )  )  ( NN i 符 )  ) 
 ( NN y ( NN x ( NN b 连 )  ( NN i 接 )  )  ( NN i 器 )  ) 
 ( NN x ( NN b 连 )  ( NN i 结 )  ) 
 ( NN x ( NN b 连 )  ( NN i 理 )  ) 
